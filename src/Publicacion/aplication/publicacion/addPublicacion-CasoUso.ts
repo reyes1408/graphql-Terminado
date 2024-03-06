@@ -22,7 +22,7 @@ export class CreatePublicacionCasoUso {
           newLikes,
           userId
         );   
-        signale.info(publicacion)
+        signale.info(publicacion);
         return publicacion;
 
       } catch (error) {

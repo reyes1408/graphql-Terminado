@@ -180,13 +180,18 @@ export class Resolvers {
       addPublicacion: async (_: void, args: any, context: any) => {
         let key = await this.servicesAuth.run(context.authScope);
         if (key) {
+          console.log(args.publicacion.descripcion);
+          console.log(args.publicacion.createDate);
+          console.log(args.publicacion.likes);
+          console.log(args.publicacion.userId);
+          
           const publicacion = await this.addPublicacion.run(
             args.publicacion.descripcion,
             args.publicacion.createDate,
             args.publicacion.likes,
             args.publicacion.userId
           );
-          console.log(publicacion);
+          console.log("publicacion ->", publicacion);
           return publicacion
         } else {
           throw (
